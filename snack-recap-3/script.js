@@ -9,14 +9,14 @@ bottone.addEventListener('click', function () {
     indovinato = false;
     numeriVincenti.forEach(
         (numero) => {
-            if (input.value == numero) {
+            if (Number(input.value) === numero) {
                 indovinato = true;
             }
-            if (indovinato === true) {
-                messaggio.textContent = "Hai indovinato";
-            } else {
-                messaggio.textContent = "Non hai indovinato";
-            }
-        }
-    );
+        });
+    if (indovinato === true) {
+        messaggio.textContent = "Hai indovinato";
+    } else {
+        messaggio.textContent = "Non hai indovinato";
+    }
+
 });
