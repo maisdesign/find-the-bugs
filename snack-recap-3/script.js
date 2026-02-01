@@ -8,12 +8,12 @@ addEventListener("DOMContentLoaded", (event) => {
         // IMPORTANTE: NON usare metodi come indexOf(), includes() o find()
         let indovinato = false;
         messaggio.className = "";
-        numeriVincenti.forEach(
-            (numero) => {
-                if (Number(input.value) === numero) {
-                    indovinato = true;
-                }
-            });
+        for (let i = 0; i < numeriVincenti.length; i++) {
+            if ((Number(input.value) === numeriVincenti[i])) {
+                indovinato = true;
+                break;
+            }
+        }
         if (indovinato === true) {
             messaggio.textContent = "Hai indovinato";
             messaggio.classList.add("btn", "btn-success");
@@ -21,7 +21,6 @@ addEventListener("DOMContentLoaded", (event) => {
             messaggio.textContent = "Non hai indovinato";
             messaggio.classList.add("btn", "btn-danger");
         }
-
     });
 }
 );
