@@ -8,13 +8,14 @@ addEventListener("DOMContentLoaded", (event) => {
         // IMPORTANTE: NON usare metodi come indexOf(), includes() o find()
         let indovinato = false;
         messaggio.className = "";
+        const valoreUtente = Number(input.value);
         for (let i = 0; i < numeriVincenti.length; i++) {
-            if ((Number(input.value) === numeriVincenti[i])) {
+            if (valoreUtente === numeriVincenti[i]) {
                 indovinato = true;
                 break;
             }
         }
-        if (indovinato === true) {
+        if (indovinato) {
             messaggio.textContent = "Hai indovinato";
             messaggio.classList.add("btn", "btn-success");
         } else {
