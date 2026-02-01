@@ -2,11 +2,11 @@ const numeriVincenti = [7, 13, 21, 42, 89];
 const input = document.getElementById('numero-utente');
 const bottone = document.getElementById('verifica');
 const messaggio = document.getElementById('messaggio');
-let indovinato = false;
 
 bottone.addEventListener('click', function () {
     // IMPORTANTE: NON usare metodi come indexOf(), includes() o find()
-    indovinato = false;
+    let indovinato = false;
+    messaggio.className = "";
     numeriVincenti.forEach(
         (numero) => {
             if (Number(input.value) === numero) {
@@ -15,8 +15,10 @@ bottone.addEventListener('click', function () {
         });
     if (indovinato === true) {
         messaggio.textContent = "Hai indovinato";
+        messaggio.classList.add("btn", "btn-success");
     } else {
         messaggio.textContent = "Non hai indovinato";
+        messaggio.classList.add("btn", "btn-danger");
     }
 
 });
